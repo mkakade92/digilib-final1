@@ -93,48 +93,81 @@ public class DemandSlip extends AppCompatActivity /*implements AdapterView.OnIte
 
             }
         });
+
+
         button_demand.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 progressBar.setVisibility(View.VISIBLE);
                 firebaseAuth=FirebaseAuth.getInstance();
-                FirebaseUser firebaseUser=firebaseAuth.getCurrentUser();
-                CollectionReference c2 = firebaseFirestore.collection("Users")
-                        .document(firebaseUser.getEmail())
-                        .collection("Demand_Slips");
-                c2.get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+                final FirebaseUser firebaseUser=firebaseAuth.getCurrentUser();
+                CollectionReference c1= firebaseFirestore.collection("books");
+                c1.get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
                     @Override
                     public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
                         if(!queryDocumentSnapshots.isEmpty())
                         {
-                            List<DocumentSnapshot> list = queryDocumentSnapshots.getDocuments();
+                            List<DocumentSnapshot> list=queryDocumentSnapshots.getDocuments();
                             flag=0;
-                            for(DocumentSnapshot d : list)
+                            for(DocumentSnapshot d :list)
                             {
-                                Log.d(TAG, "Document" + d.getString("bookName"));
                                 editText_book=(EditText)findViewById(R.id.editText_book);
-                                String bName=editText_book.getText().toString().toLowerCase().trim();
-
-                                if(bName.equals(d.getString("bookName").toLowerCase().trim())) {
-                                    flag = 1;
+                                String bname=editText_book.getText().toString().toLowerCase().trim();
+                                if(bname==d.get("title").toString().toLowerCase().trim())
+                                {
+                                    flag=1;
                                     break;
                                 }
-                            }
-                            if(flag==0)
-                                createDemandSlip();
-                            else {
-                                progressBar.setVisibility(View.GONE);
-                                Toast.makeText(getApplicationContext(), "Demand Slip Already Exists",
-                                        Toast.LENGTH_SHORT).show();
-                            }
-                        }
-                        else
-                        {
-                            createDemandSlip();
-                        }
 
+                            }
+                            if(flag==1)
+                            {
+                                CollectionReference c2 = firebaseFirestore.collection("Users")
+                                        .document(firebaseUser.getEmail())
+                                        .collection("Demand_Slips");
+                                c2.get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+                                    @Override
+                                    public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
+                                        if(!queryDocumentSnapshots.isEmpty())
+                                        {
+                                            List<DocumentSnapshot> list = queryDocumentSnapshots.getDocuments();
+                                            flag=0;
+                                            for(DocumentSnapshot d : list)
+                                            {
+                                                Log.d(TAG, "Document" + d.getString("bookName"));
+                                                editText_book=(EditText)findViewById(R.id.editText_book);
+                                                String bName=editText_book.getText().toString().toLowerCase().trim();
+
+                                                if(bName.equals(d.getString("bookName").toLowerCase().trim())) {
+                                                    flag = 1;
+                                                    break;
+                                                }
+                                            }
+                                            if(flag==0)
+                                                createDemandSlip();
+                                            else {
+                                                progressBar.setVisibility(View.GONE);
+                                                Toast.makeText(getApplicationContext(), "Demand Slip Already Exists",
+                                                        Toast.LENGTH_SHORT).show();
+                                            }
+                                        }
+                                        else
+                                        {
+                                            createDemandSlip();
+                                        }
+
+                                    }
+                                });
+                            }
+                            else
+                            {
+                                Toast.makeText(getApplicationContext(),"No such book exists Or Count is 0",Toast.LENGTH_SHORT).show();
+                                progressBar.setVisibility(View.GONE);
+                            }
+                        }
                     }
                 });
+
 
             }
         });
