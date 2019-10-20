@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.digitallibraryapp">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/logo"
+        android:label="@string/app_name"
+        android:roundIcon="@drawable/logo"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".ViewRequestBooks"></activity>
+        <activity android:name=".RequestBooks" />
+        <activity android:name=".DemandSlip" />
+        <activity android:name=".viewDemandSlips" />
+        <activity android:name=".about" />
+        <activity android:name=".fine" />
+        <activity android:name=".view_books" />
+        <activity
+            android:name=".Profile"
+            android:label="@string/title_activity_navigation_draw"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".Registration" />
+        <activity android:name=".login" />
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <receiver android:name=".AlarmReceiver" />
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
+    </application>
+
+</manifest>

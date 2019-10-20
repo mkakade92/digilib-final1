@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="8dp"
+    android:layout_marginStart="8dp"
+    android:layout_marginBottom="8dp"
+    android:layout_marginEnd="8dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardCornerRadius="8dp"
+    app:cardBackgroundColor="@color/cardview_light_background"
+    >
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="8dp"
+        >
+        <TextView
+            android:id="@+id/bname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TITLEEEEEEEEEEEEeewwwe"
+            android:textSize="32dp"
+            android:maxLines="1"
+            android:textStyle="bold"
+            android:layout_toStartOf="@+id/fine"
+            android:layout_alignParentStart="true"
+            android:ellipsize="end"
+            android:textColorHighlight="@android:color/primary_text_dark"/>
+        <TextView
+            android:id="@+id/idate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/bname"
+            android:text="date"
+            android:textSize="16dp"
+            android:textStyle="normal"
+            android:textColorHighlight="@android:color/secondary_text_dark"
+            android:layout_toStartOf="@+id/fine"
+            android:layout_alignParentStart="true"/>
+
+        <TextView
+            android:id="@+id/fine"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:text="0"
+            android:textSize="28dp"
+            android:textColor="#D50000"
+            android:textStyle="bold" />
+    </RelativeLayout>
+
+
+</androidx.cardview.widget.CardView>

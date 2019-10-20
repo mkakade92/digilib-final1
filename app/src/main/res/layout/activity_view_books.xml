@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view_books"
+    android:background="@drawable/rectangle2"
+    android:orientation="horizontal">
+
+   <androidx.appcompat.widget.Toolbar
+       android:id="@+id/toolbar"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:layout_marginBottom="8dp"
+       android:contentInsetStart="0dp"
+       android:contentInsetLeft="0dp"
+       android:contentInsetEnd="0dp"
+       android:contentInsetRight="0dp"
+       android:theme="@style/AppTheme"
+       app:titleTextColor="#FF0000"
+       app:contentInsetEnd="0dp"
+       app:contentInsetLeft="0dp"
+       app:contentInsetRight="0dp"
+       app:contentInsetStart="0dp"
+       app:layout_constraintStart_toStartOf="parent"
+       app:layout_constraintTop_toTopOf="parent" />
+
+
+   <androidx.recyclerview.widget.RecyclerView
+       android:id="@+id/recyclerview2"
+       android:layout_width="match_parent"
+       android:layout_height="match_parent"
+       android:layout_below="@+id/toolbar"
+       app:layout_constraintBottom_toBottomOf="parent"
+       app:layout_constraintEnd_toEndOf="parent"
+       app:layout_constraintStart_toStartOf="parent">
+
+   </androidx.recyclerview.widget.RecyclerView>
+</RelativeLayout>

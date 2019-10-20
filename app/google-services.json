@@ -1,0 +1,56 @@
+{
+  "project_info": {
+    "project_number": "673376236363",
+    "firebase_url": "https://digital-library-app-ab2ce.firebaseio.com",
+    "project_id": "digital-library-app-ab2ce",
+    "storage_bucket": "digital-library-app-ab2ce.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:673376236363:android:5edb7de92f882c61",
+        "android_client_info": {
+          "package_name": "com.example.digitallibraryapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "673376236363-19n430kudanqe4t6efvda53kgln3poqt.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.digitallibraryapp",
+            "certificate_hash": "4d186e8567b59aa987fe919b359cb0ad7c4a810e"
+          }
+        },
+        {
+          "client_id": "673376236363-hkdprohtlugi2vpjiakhpsjnk1ivk58d.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.digitallibraryapp",
+            "certificate_hash": "0fad1e8beb1b8124b089e9474ddcb15e97e25849"
+          }
+        },
+        {
+          "client_id": "673376236363-riig3lffo534ln7t8babkgeioti0an2p.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBNNCFzBu5OpXjQEueRftIFjiRy4WZOE0I"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "673376236363-riig3lffo534ln7t8babkgeioti0an2p.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
