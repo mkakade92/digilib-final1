@@ -9,6 +9,7 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -24,11 +25,13 @@ public class Registration extends AppCompatActivity {
     FirebaseAuth firebaseAuth;
     EditText name,class_,roll,department,editTextUsername,editTextPassword,editTextConfirm;
     Button buttonRegister;
+    private ProgressBar progressBar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registration);
-
+        progressBar=(ProgressBar)findViewById(R.id.proBarRegis);
+        progressBar.setVisibility(View.GONE);
         firebaseAuth=FirebaseAuth.getInstance();
         if(firebaseAuth.getCurrentUser()!=null)
         {
@@ -55,6 +58,7 @@ public class Registration extends AppCompatActivity {
     }
     private void userRegistration()
     {
+        progressBar.setVisibility(View.VISIBLE);
         final String username=editTextUsername.getText().toString().trim();
         String password=editTextPassword.getText().toString().trim();
         String confirm=editTextConfirm.getText().toString().trim();
@@ -62,18 +66,21 @@ public class Registration extends AppCompatActivity {
         if(TextUtils.isEmpty(username))
         {
             editTextUsername.setError("Enter valid username");
+            progressBar.setVisibility(View.GONE);
             Toast.makeText(Registration.this,"Empty Field",Toast.LENGTH_LONG).show();
             return;
         }
         if(TextUtils.isEmpty(password))
         {
             editTextPassword.setError("Enter valid password");
+            progressBar.setVisibility(View.GONE);
             Toast.makeText(Registration.this,"Empty Field",Toast.LENGTH_LONG).show();
             return;
         }
         if(TextUtils.isEmpty(confirm))
         {
             editTextConfirm.setError("Enter valid password");
+            progressBar.setVisibility(View.GONE);
             Toast.makeText(Registration.this,"Empty Field",Toast.LENGTH_LONG).show();
             return;
         }
@@ -89,14 +96,17 @@ public class Registration extends AppCompatActivity {
                         UserInformation user=new UserInformation(name_,department_,Integer.parseInt(roll_),_class_);
                         db.collection("Users").document(username)
                                 .set(user);
+                        progressBar.setVisibility(View.GONE);
                         finish();
                         startActivity(new Intent(getApplicationContext(), Profile.class));
                     } else {
+                        progressBar.setVisibility(View.GONE);
                         Toast.makeText(getApplicationContext(), "Something Went Wrong!!!!", Toast.LENGTH_LONG).show();
                     }
                 }
             });
         } else {
+            progressBar.setVisibility(View.GONE);
             Toast.makeText(Registration.this, "Password and Confirm Password must match!!!", Toast.LENGTH_LONG).show();
             return;
         }
