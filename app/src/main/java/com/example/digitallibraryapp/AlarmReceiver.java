@@ -44,7 +44,7 @@ public class AlarmReceiver extends BroadcastReceiver {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             NotificationChannel channel = new NotificationChannel(
                     CHANNEL_ID,
-                    "NotificationDemo",
+                    "Pending Fine",
                     IMPORTANCE_DEFAULT
             );
             notificationManager.createNotificationChannel(channel);

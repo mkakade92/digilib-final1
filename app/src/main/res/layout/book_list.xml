@@ -15,41 +15,51 @@
         android:layout_height="match_parent"
         android:padding="8dp"
         >
-        <TextView
-            android:id="@+id/title"
+        <HorizontalScrollView
+            android:id="@+id/childscroll"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="TITLEEEEEEEEEEEEeewwwe"
-            android:fontFamily="@font/graduate"
-            android:textSize="32dp"
-            android:maxLines="1"
             android:layout_toStartOf="@+id/count"
             android:layout_alignParentStart="true"
-            android:ellipsize="end"
-            android:textColor="#0091EA"
-            />
+            android:scrollbars="none"
+            >
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="TITLEEEEEEEEEEEEeewwwe"
+                android:fontFamily="@font/graduate"
+                android:textSize="32dp"
+                android:scrollHorizontally="true"
+                android:textColor="#0091EA"
+                />
+            </HorizontalScrollView>
+
         <TextView
             android:id="@+id/author"
+            android:padding="8dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/title"
+            android:layout_below="@+id/childscroll"
             android:text="AUTHOR"
             android:fontFamily="@font/ubuntu_medium"
             android:textSize="16dp"
             android:textStyle="normal"
             android:textColor="#00B8D4"
             android:layout_toStartOf="@+id/count"
-            android:layout_alignParentStart="true"/>
+            android:layout_alignParentStart="true"
+            />
 
         <TextView
             android:id="@+id/count"
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:layout_alignParentEnd="true"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textStyle="bold"
+            android:padding="8dp"
             android:text="10"
-            android:textSize="32dp" />
+            android:textSize="32dp"
+            android:textStyle="bold" />
     </RelativeLayout>
 
 

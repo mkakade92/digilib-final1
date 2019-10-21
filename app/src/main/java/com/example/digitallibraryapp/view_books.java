@@ -50,7 +50,7 @@ public class view_books extends AppCompatActivity {
 
     public void setupRecyclerView()
     {
-        Query query = collectionReference.orderBy("title").limit(50);
+        Query query = collectionReference.orderBy("title");
         FirestoreRecyclerOptions<book> options = new FirestoreRecyclerOptions.Builder<book>()
                 .setQuery(query, book.class).build();
 

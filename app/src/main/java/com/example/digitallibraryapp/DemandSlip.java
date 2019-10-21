@@ -113,7 +113,8 @@ public class DemandSlip extends AppCompatActivity /*implements AdapterView.OnIte
                             {
                                 editText_book=(EditText)findViewById(R.id.editText_book);
                                 String bname=editText_book.getText().toString().toLowerCase().trim();
-                                if(bname==d.get("title").toString().toLowerCase().trim())
+                                if(bname.equalsIgnoreCase(d.get("title").toString().toLowerCase().trim())
+                                    && d.get("count").toString().trim().equalsIgnoreCase("0"))
                                 {
                                     flag=1;
                                     break;

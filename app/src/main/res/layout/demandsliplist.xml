@@ -19,45 +19,49 @@
         <ProgressBar
             android:id="@+id/proBar"
             style="?android:attr/progressBarStyleLarge"
-            android:layout_width="42dp"
-            android:layout_height="34dp"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentEnd="true"
-            android:layout_marginStart="266dp"
-            android:layout_marginTop="50dp"
-            android:layout_marginEnd="79dp" />
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+  />
 
-        <TextView
-            android:id="@+id/title1"
-            android:layout_width="309dp"
+        <HorizontalScrollView
+            android:id="@+id/childScroll3"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
-            android:ellipsize="end"
-            android:maxLines="1"
-            android:text="TITLEEEEEEEEEEEEeewwwe"
-            android:textColorHighlight="@android:color/primary_text_dark"
-            android:textSize="28sp"
-            android:textStyle="bold" />
+            android:layout_toStartOf="@+id/delBtn"
+            android:scrollbars="none"
+            >
+            <TextView
+                android:id="@+id/title1"
+                android:layout_width="309dp"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:text="TITLEEEEEEEEEEEEeewwwe"
+                android:textColorHighlight="@android:color/primary_text_dark"
+                android:textSize="28sp"
+                android:textStyle="bold" />
+        </HorizontalScrollView>
+
         <TextView
             android:id="@+id/demandDate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/title1"
+            android:layout_below="@+id/childScroll3"
             android:text="DemandDate"
             android:textSize="16dp"
             android:textStyle="normal"
             android:textColorHighlight="@android:color/secondary_text_dark"
-            android:layout_alignParentStart="true"/>
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"/>
 
         <ImageView
             android:id="@+id/delBtn"
-            android:layout_width="63dp"
-            android:layout_height="54dp"
-            android:layout_alignStart="@+id/title1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
             android:layout_alignParentEnd="true"
-            android:layout_marginStart="325dp"
-            android:layout_marginEnd="8dp"
             android:src="@drawable/ic_delete" />
 
     </RelativeLayout>

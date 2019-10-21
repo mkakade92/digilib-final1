@@ -12,6 +12,7 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -28,12 +29,14 @@ public class login extends AppCompatActivity {
     EditText editTextUsername,editTextPassword;
     Button buttonLogin;
     TextView textViewRegiistration;
+    private ProgressBar progressBar;
     private int count = 0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-
+        progressBar  = (ProgressBar)findViewById(R.id.proBarlogin);
+        progressBar.setVisibility(View.GONE);
         firebaseAuth=FirebaseAuth.getInstance();
 
         if(firebaseAuth.getCurrentUser()!=null)
@@ -69,6 +72,7 @@ public class login extends AppCompatActivity {
     private void userLogin()
     {
 
+        progressBar.setVisibility(View.VISIBLE);
         String username=editTextUsername.getText().toString().trim();
         String password=editTextPassword.getText().toString().trim();
 
@@ -89,12 +93,13 @@ public class login extends AppCompatActivity {
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if(task.isSuccessful())
                 {
+                    progressBar.setVisibility(View.GONE);
                     startActivity(new Intent(getApplicationContext(),Profile.class));
                     finish();
                 }
                 else
                 {
-
+                    progressBar.setVisibility(View.GONE);
                     Toast.makeText(getApplicationContext(),"Invalid username or password!!!!",Toast.LENGTH_LONG).show();
                 }
             }

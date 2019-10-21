@@ -15,27 +15,36 @@
         android:layout_height="match_parent"
         android:padding="8dp"
         >
-        <TextView
-            android:id="@+id/title"
+        <HorizontalScrollView
+            android:id="@+id/childScroll2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="TITLEEEEEEEEEEEEeewwwe"
-            android:textSize="32dp"
-            android:maxLines="1"
-            android:textStyle="bold"
             android:layout_alignParentStart="true"
-            android:ellipsize="end"
-            android:textColorHighlight="@android:color/primary_text_dark"/>
+            android:layout_alignParentEnd="true"
+            android:scrollbars="none"
+            >
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="TITLEEEEEEEEEEEEeewwwe"
+                android:textSize="32dp"
+                android:maxLines="1"
+                android:textStyle="bold"
+                android:textColorHighlight="@android:color/primary_text_dark"/>
+        </HorizontalScrollView>
+
         <TextView
             android:id="@+id/author"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/title"
+            android:layout_below="@+id/childScroll2"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
             android:text="AUTHOR"
-            android:textSize="16dp"
-            android:textStyle="normal"
             android:textColorHighlight="@android:color/secondary_text_dark"
-            android:layout_alignParentStart="true"/>
+            android:textSize="16dp"
+            android:textStyle="normal" />
     </RelativeLayout>
 
 

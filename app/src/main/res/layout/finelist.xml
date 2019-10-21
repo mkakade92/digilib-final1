@@ -15,23 +15,31 @@
         android:layout_height="match_parent"
         android:padding="8dp"
         >
-        <TextView
-            android:id="@+id/bname"
+        <HorizontalScrollView
+            android:id="@+id/childScroll4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="TITLEEEEEEEEEEEEeewwwe"
-            android:textSize="32dp"
-            android:maxLines="1"
-            android:textStyle="bold"
             android:layout_toStartOf="@+id/fine"
             android:layout_alignParentStart="true"
-            android:ellipsize="end"
-            android:textColorHighlight="@android:color/primary_text_dark"/>
+            android:scrollbars="none">
+            <TextView
+                android:id="@+id/bname"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="TITLEEEEEEEEEEEEeewwwe"
+                android:textSize="32dp"
+                android:maxLines="1"
+                android:textStyle="bold"
+
+                android:ellipsize="end"
+                android:textColorHighlight="@android:color/primary_text_dark"/>
+        </HorizontalScrollView>
+
         <TextView
             android:id="@+id/idate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/bname"
+            android:layout_below="@+id/childScroll4"
             android:text="date"
             android:textSize="16dp"
             android:textStyle="normal"
