@@ -108,7 +108,7 @@ public class RequestBooks extends AppCompatActivity {
                             {
                                 editText_book=(EditText)findViewById(R.id.editText_book);
                                 String bname=editText_book.getText().toString().toLowerCase().trim();
-                                if(bname==d.get("title").toString().toLowerCase().trim())
+                                if(bname.equalsIgnoreCase(d.get("title").toString().toLowerCase().trim()))
                                 {
                                     flag=1;
                                     break;
